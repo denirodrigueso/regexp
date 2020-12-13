@@ -1,4 +1,4 @@
-const { texto, arquivos } = require('./base');
+const { texto, arquivos } = require("./base");
 
 // * (opcionais) 0 ou n {0,}
 // + (obrigatório) 1 ou n {1,}
@@ -10,11 +10,11 @@ const { texto, arquivos } = require('./base');
 // {5,10} de 5 a 10
 // {10}
 
-// console.log(texto);
-// const regExp1 = /Jo+ão+/gi
-// console.log(texto.match(regExp1));
+console.log(texto);
+const regExp1 = /Jo+ão+/gi
+console.log(texto.match(regExp1));
 
-const regExp2 = /\.((jp|JP)(e|E)?(g|G))/g
+const regExp2 = /\.((jp|JP)(e|E)?(g|G))/g;
 
 for (const arquivo of arquivos) {
   const valido = arquivo.match(regExp2);
@@ -23,3 +23,13 @@ for (const arquivo of arquivos) {
 
   console.log(arquivo, valido);
 }
+
+var textis =
+  "Mussum Ipsum, cacilds vidis litro abertis. Mauris nec dolor in eros commodo tempor. Mussummmmmmm Ipsum, cacilds vidis litro abertis. Mauris nec dolor in eros commodo tempor 22 Mussum Ipsum, cacilds vidis litro abertis. Mauris nec dolor in eros commodo tempor..";
+
+// Um detelhe não abordado nos casos de uso das chaves
+// para quantificar grupos de caracteres, só funcionam
+// dentro dos grupos como no exemplo abaixo ↓
+const deniRegEx = /(Muss)(u(m{5,10})) (I*)psum/gi;
+console.log(deniRegEx.exec(textis));
+console.log(textis.match(deniRegEx));
